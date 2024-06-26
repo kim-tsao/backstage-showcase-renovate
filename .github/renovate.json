@@ -9,11 +9,11 @@
       "default:automergeBranchPush"
     ],
     "js": {
-      "groupName": "{additionalBranchPrefix} ",
+      "groupName": "js ",
       "additionalBranchPrefix": "js "
     },
     "python": {
-      "groupName": "{additionalBranchPrefix} ",       
+      "groupName": "python ",       
       "additionalBranchPrefix": "python "
     },
     "labels": ["kind/dependency upgrade"],
@@ -54,6 +54,10 @@
         "matchUpdateTypes": ["major"],
         "groupName": "Test packages"
       },
+      {
+        "matchPackagePatterns": [
+        ]
+      },      
       {
         "matchPackagePatterns": [
           "^@backstage/",
