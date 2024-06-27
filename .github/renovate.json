@@ -14,7 +14,8 @@
     "python": {
       "groupName": "python  ",       
       "additionalBranchPrefix": "python ",
-      "dependencyDashboardApproval": true
+      "dependencyDashboardApproval": true,
+      "description": "Require dashboard approval for all python dependencies due to potential conflicts"    
     },
     "labels": ["kind/dependency upgrade"],
     "npm": {
@@ -134,7 +135,26 @@
           "major"
         ],
         "groupName": "emotion"      
-      },                                   
+      },       
+      {
+        "matchPackagePrefixes": [
+          "@types/"
+        ],
+        "matchUpdateTypes": [
+          "patch",
+          "minor"
+        ],
+        "groupName": "types (non-major)"      
+      },    
+      {
+        "matchPackagePrefixes": [
+          "@types/"
+        ],
+        "matchUpdateTypes": [
+          "major"
+        ],
+        "groupName": "types "      
+      },                                       
       {
         "matchPackagePatterns": [
           "^@backstage/",
@@ -145,6 +165,7 @@
           "^@pagerduty/",
           "^@internal/"
         ],
+        "description": "ignore updates to all backstage updates and 3rd party plugins",
         "groupName": ["Backstage packages"],
         "dependencyDashboardApproval": true,
         "enabled": false
