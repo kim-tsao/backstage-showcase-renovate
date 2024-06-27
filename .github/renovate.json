@@ -7,15 +7,11 @@
       "default:pinDigestsDisabled",
       "default:automergeBranchPush"
     ],
-    "js": {
-      "groupName": "js  ",
-      "additionalBranchPrefix": "js "
-    },
     "python": {
       "groupName": "python  ",       
       "additionalBranchPrefix": "python ",
       "dependencyDashboardApproval": true,
-      "description": "Require dashboard approval for all python dependencies due to potential conflicts"    
+      "description": "equire dashboard approval for all python dependencies due to potential conflicts"    
     },
     "labels": ["kind/dependency upgrade"],
     "npm": {
@@ -53,7 +49,29 @@
           "major"
         ],
         "groupName": ["DevDependencies "]
-      },      
+      },   
+      {
+        "matchDepTypes": [
+          "dependencies",
+          "peerDependencies"
+        ],
+        "matchCurrentVersion": "!/^0/",          
+        "groupName": "Dependencies (non-major)",
+        "matchUpdateTypes": [
+          "minor",
+          "patch"
+        ]
+      },
+      {
+        "matchDepTypes": [
+          "dependencies",
+          "peerDependencies"
+        ],
+        "groupName": "Dependencies",
+        "matchUpdateTypes": [
+          "major"
+        ]
+      },          
       {
         "extends": ["packages:test"],
         "matchUpdateTypes": [
