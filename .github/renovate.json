@@ -4,16 +4,15 @@
       ":gitSignOff",
       ":rebaseStalePrs",
       "group:allNonMajor",
-      "group:linters",
       "default:pinDigestsDisabled",
       "default:automergeBranchPush"
     ],
     "js": {
-      "groupName": "js ",
+      "groupName": "js  ",
       "additionalBranchPrefix": "js "
     },
     "python": {
-      "groupName": "python ",       
+      "groupName": "python  ",       
       "additionalBranchPrefix": "python "
     },
     "labels": ["kind/dependency upgrade"],
@@ -43,6 +42,11 @@
         "automerge": true
       },
       {
+        "matchDepTypes": ["devDependencies"],
+        "matchUpdateTypes": ["major"],
+        "groupName": ["DevDependencies (major)"]
+      },      
+      {
         "extends": ["packages:test"],
         "matchUpdateTypes": ["patch", "minor"],
         "matchCurrentVersion": "!/^0/",
@@ -55,9 +59,30 @@
         "groupName": "Test packages"
       },
       {
-        "matchPackagePatterns": [
+        "extends": ["packages:linters"],
+        "matchUpdateTypes": ["major"],
+        "groupName": "linters"
+      },     
+      {
+        "extends": ["packages:linters"],
+        "matchUpdateTypes": ["patch", "minor"],
+        "groupName": "linters"
+      },    
+      {
+        "extends": "monorepo:material-ui",
+        "groupName": "material-ui monorepo",
+        "matchUpdateTypes": [
+          "patch",
+          "minor"
         ]
-      },      
+      },
+      {
+        "extends": "monorepo:material-ui",
+        "groupName": "material-ui monorepo",
+        "matchUpdateTypes": [
+          "major"
+        ]
+      },            
       {
         "matchPackagePatterns": [
           "^@backstage/",
