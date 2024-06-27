@@ -13,7 +13,8 @@
     },
     "python": {
       "groupName": "python  ",       
-      "additionalBranchPrefix": "python "
+      "additionalBranchPrefix": "python ",
+      "dependencyDashboardApproval": true
     },
     "labels": ["kind/dependency upgrade"],
     "npm": {
@@ -46,6 +47,13 @@
         "automerge": true
       },
       {
+        "matchDepTypes": ["devDependencies"],
+        "matchUpdateTypes": [
+          "major"
+        ],
+        "groupName": ["DevDependencies "]
+      },      
+      {
         "extends": ["packages:test"],
         "matchUpdateTypes": [
           "patch",
@@ -54,7 +62,14 @@
         "matchCurrentVersion": "!/^0/",
         "groupName": "Test packages (non-major)",
         "automerge": true
-      },   
+      },  
+      {
+        "extends": ["packages:test"],
+        "matchUpdateTypes": [
+          "major"
+        ],
+        "groupName": "Test packages "
+      },          
       {
         "extends": ["packages:linters"],
         "matchUpdateTypes": [
@@ -66,6 +81,13 @@
         "automerge": true
       },    
       {
+        "extends": ["packages:linters"],
+        "matchUpdateTypes": [
+          "major"
+        ],
+        "groupName": "linters"
+      },          
+      {
         "extends": "monorepo:material-ui",
         "matchUpdateTypes": [
           "patch",
@@ -74,6 +96,13 @@
         "groupName": "material-ui (non-major)",        
         "automerge": true
       },
+      {
+        "extends": "monorepo:material-ui",
+        "matchUpdateTypes": [
+          "major"
+        ],
+        "groupName": "material-ui"      
+      },      
       {
         "extends": "monorepo:react",
         "matchUpdateTypes": [
@@ -84,14 +113,28 @@
         "automerge": true
       },
       {
+        "extends": "monorepo:react",
+        "matchUpdateTypes": [
+          "major"
+        ],
+        "groupName": "react"
+      },      
+      {
         "extends": "monorepo:emotion",
         "matchUpdateTypes": [
           "patch",
           "minor"
         ],
-        "groupName": "emotion",        
+        "groupName": "emotion (non-major)",        
         "automerge": true
-      },                              
+      },   
+      {
+        "extends": "monorepo:emotion",
+        "matchUpdateTypes": [
+          "major"
+        ],
+        "groupName": "emotion"      
+      },                                   
       {
         "matchPackagePatterns": [
           "^@backstage/",
