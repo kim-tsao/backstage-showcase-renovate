@@ -38,6 +38,7 @@
       {
         "matchDepTypes": ["devDependencies"],
         "matchUpdateTypes": ["patch", "minor"],
+        "matchCurrentVersion": "!/^0/",        
         "groupName": ["DevDependencies (non-major)"],
         "automerge": true
       },
@@ -66,11 +67,12 @@
       {
         "extends": ["packages:linters"],
         "matchUpdateTypes": ["patch", "minor"],
-        "groupName": "linters"
+        "matchCurrentVersion": "!/^0/",        
+        "groupName": "linters  (non-major)"
       },    
       {
         "extends": "monorepo:material-ui",
-        "groupName": "material-ui monorepo",
+        "groupName": "material-ui (non-major)",
         "matchUpdateTypes": [
           "patch",
           "minor"
@@ -78,11 +80,26 @@
       },
       {
         "extends": "monorepo:material-ui",
-        "groupName": "material-ui monorepo",
+        "groupName": "material-ui",
         "matchUpdateTypes": [
           "major"
         ]
-      },            
+      },   
+      {
+        "extends": "monorepo:react",
+        "groupName": "react (non-major)",
+        "matchUpdateTypes": [
+          "patch",
+          "minor"
+        ]
+      },
+      {
+        "extends": "monorepo:react",
+        "groupName": "react",
+        "matchUpdateTypes": [
+          "major"
+        ]
+      },                     
       {
         "matchPackagePatterns": [
           "^@backstage/",
@@ -96,7 +113,7 @@
         "groupName": ["Backstage packages"],
         "dependencyDashboardApproval": true,
         "enabled": false
-      }
+      }  
     ],
     "ignorePaths": ["**/dist-dynamic/**"],
     "ignoreDeps": ["@roadiehq/backstage-plugin-argo-cd"],
