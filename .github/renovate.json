@@ -37,67 +37,60 @@
       },
       {
         "matchDepTypes": ["devDependencies"],
-        "matchUpdateTypes": ["patch", "minor"],
+        "matchUpdateTypes": [
+          "patch",
+          "minor"
+        ],
         "matchCurrentVersion": "!/^0/",        
         "groupName": ["DevDependencies (non-major)"],
         "automerge": true
       },
       {
         "extends": ["packages:test"],
-        "matchUpdateTypes": ["patch", "minor"],
+        "matchUpdateTypes": [
+          "patch",
+          "minor"
+        ],
         "matchCurrentVersion": "!/^0/",
         "groupName": "Test packages (non-major)",
         "automerge": true
-      },
-      {
-        "extends": ["packages:test"],
-        "matchUpdateTypes": ["major"],
-        "groupName": "Test packages"
-      },
+      },   
       {
         "extends": ["packages:linters"],
-        "matchUpdateTypes": ["major"],
-        "groupName": "linters"
-      },     
-      {
-        "extends": ["packages:linters"],
-        "matchUpdateTypes": ["patch", "minor"],
+        "matchUpdateTypes": [
+          "patch",
+          "minor"
+        ],
         "matchCurrentVersion": "!/^0/",        
-        "groupName": "linters  (non-major)"
+        "groupName": "linters  (non-major)",
+        "automerge": true
       },    
       {
         "extends": "monorepo:material-ui",
-        "groupName": "material-ui (non-major)",
         "matchUpdateTypes": [
           "patch",
           "minor"
-        ]
+        ],
+        "groupName": "material-ui (non-major)",        
+        "automerge": true
       },
       {
-        "extends": "monorepo:material-ui",
-        "groupName": "material-ui",
-        "matchUpdateTypes": [
-          "major"
-        ]
-      },   
-      {
         "extends": "monorepo:react",
+        "matchUpdateTypes": [
+          "patch",
+          "minor"
+        ],
         "groupName": "react (non-major)",
-        "matchUpdateTypes": [
-          "patch",
-          "minor"
-        ]
+        "automerge": true
       },
-      {
-        "extends": "monorepo:react",
-        "groupName": "react",
-        "matchUpdateTypes": [
-          "major"
-        ]
-      },   
       {
         "extends": "monorepo:emotion",
-        "groupName": "emotion"
+        "matchUpdateTypes": [
+          "patch",
+          "minor"
+        ],
+        "groupName": "emotion",        
+        "automerge": true
       },                              
       {
         "matchPackagePatterns": [
