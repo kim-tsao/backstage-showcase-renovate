@@ -13,7 +13,8 @@
     },
     "python": {
       "groupName": "python  ",       
-      "additionalBranchPrefix": "python "
+      "additionalBranchPrefix": "python ",
+      "dependencyDashboardApproval": true
     },
     "labels": ["kind/dependency upgrade"],
     "npm": {
