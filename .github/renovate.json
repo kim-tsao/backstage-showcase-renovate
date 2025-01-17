@@ -13,6 +13,10 @@
   "npm": {
     "minimumReleaseAge": "1 day"
   },
+  "baseBranches":[
+    "main",
+    "/^release-1\\..*/"
+  ],
   "pip_requirements": {
     "fileMatch": [
       "requirements.*\\.in"
@@ -24,6 +28,13 @@
   "recreateWhen": "never",
   "packageRules": [
     {
+      "description": "Disable everything before selectively enabling",
+      "matchPackageNames": ["*"],
+      "enabled": false
+    },    
+    {
+      "enabled": true,
+      "matchBaseBranches": ["main"],
       "matchCategories": [
         "python"
       ],
@@ -47,6 +58,7 @@
       "automerge": false
     },      
     {
+      "enabled": true,
       "matchDatasources": [
         "docker"
       ],
@@ -65,6 +77,7 @@
       "automerge": false
     },
     {
+      "enabled": true,
       "matchDatasources": [
         "docker"
       ],
@@ -80,6 +93,7 @@
       "automerge": false
     },    
     {
+      "enabled": true,
       "matchDepTypes": [
         "devDependencies"
       ],
@@ -87,6 +101,7 @@
         "patch",
         "minor"
       ],
+      "matchBaseBranches": ["main"],
       "matchCurrentVersion": "!/^0/",
       "groupName": "DevDependencies (non-major)",
       "automerge": true
@@ -101,6 +116,8 @@
       "groupName": "DevDependencies "
     },
     {
+      "enabled": true, 
+      "matchBaseBranches": ["main"],
       "matchDepTypes": [
         "dependencies",
         "peerDependencies"
@@ -122,9 +139,11 @@
       ]
     },
     {
+      "enabled": true, 
       "extends": [
         "packages:test"
       ],
+      "matchBaseBranches": ["main"],
       "matchUpdateTypes": [
         "patch",
         "minor"
@@ -143,6 +162,7 @@
       "groupName": "Test packages "
     },
     {
+      "enabled": true,
       "extends": [
         "packages:linters"
       ],
@@ -150,6 +170,7 @@
         "patch",
         "minor"
       ],
+      "matchBaseBranches": ["main"],
       "matchCurrentVersion": "!/^0/",
       "groupName": "linters  (non-major)",
       "automerge": true
@@ -164,6 +185,7 @@
       "groupName": "linters"
     },
     {
+      "enabled": true, 
       "extends": [
         "monorepo:material-ui"
       ],
@@ -171,6 +193,7 @@
         "patch",
         "minor"
       ],
+      "matchBaseBranches": ["main"],
       "groupName": "material-ui (non-major)",
       "automerge": true
     },
@@ -184,6 +207,7 @@
       "groupName": "material-ui"
     },
     {
+      "enabled": true,
       "extends": [
         "monorepo:react"
       ],
@@ -191,6 +215,7 @@
         "patch",
         "minor"
       ],
+      "matchBaseBranches": ["main"],
       "groupName": "react (non-major)",
       "automerge": true
     },
@@ -204,6 +229,7 @@
       "groupName": "react"
     },
     {
+      "enabled": true, 
       "extends": [
         "monorepo:emotion"
       ],
@@ -211,6 +237,7 @@
         "patch",
         "minor"
       ],
+      "matchBaseBranches": ["main"],
       "groupName": "emotion (non-major)",
       "automerge": true
     },
@@ -224,10 +251,12 @@
       "groupName": "emotion"
     },
     {
+      "enabled": true,
       "matchUpdateTypes": [
         "patch",
         "minor"
       ],
+      "matchBaseBranches": ["main"],
       "groupName": "types (non-major)",
       "matchPackageNames": [
         "@types/{/,}**"
