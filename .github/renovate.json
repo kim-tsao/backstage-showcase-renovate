@@ -26,12 +26,7 @@
     "dependencyDashboardApproval": true
   },
   "recreateWhen": "never",
-  "packageRules": [
-    {
-      "description": "Disable everything before selectively enabling",
-      "matchPackageNames": ["*"],
-      "enabled": false
-    },    
+  "packageRules": [  
     {
       "enabled": true,
       "matchBaseBranches": ["main"],
