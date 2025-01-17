@@ -33,12 +33,36 @@
       "description": "require dashboard approval for all python dependencies due to potential conflicts"
     },
     {
-      "matchCategories": [
+      "description": "Do NOT generate PRs for minor dockerfile updates in 1.y ",
+      "enabled": false,
+      "matchDatasources": [
         "docker"
       ],
-      "digest": {
-        "enabled": false
-      }
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "matchBaseBranches": [
+        "/^release-1\\..*/"
+      ],
+      "automerge": false
+    },      
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ],    
+      "matchBaseBranches": [
+        "main",
+        "/^release-1\\..*/"
+      ],  
+      "matchFileNames": [
+        ".ibm/images/Dockerfile"
+      ],     
+      "additionalBranchPrefix": "test-dockerfile ",        
+      "groupName": "All Test dockerfile patch image updates",
+      "automerge": false
     },
     {
       "matchDatasources": [
@@ -52,9 +76,9 @@
         "/^release-1\\..*/"
       ],      
       "additionalBranchPrefix": "dockerfile ",        
-      "groupName": "All patch dockerfile image updates",
+      "groupName": "All dockerfile patch image updates",
       "automerge": false
-    },
+    },    
     {
       "matchDepTypes": [
         "devDependencies"
