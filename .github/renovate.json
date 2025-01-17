@@ -44,7 +44,16 @@
       "matchDatasources": [
         "docker"
       ],
-      "groupName": "Docker base images"
+      "matchUpdateTypes": [
+        "patch"
+      ],    
+      "matchBaseBranches": [
+        "main",
+        "/^release-1\\..*/"
+      ],      
+      "additionalBranchPrefix": "dockerfile ",        
+      "groupName": "All patch dockerfile image updates",
+      "automerge": false
     },
     {
       "matchDepTypes": [
