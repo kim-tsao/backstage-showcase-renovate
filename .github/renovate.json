@@ -25,10 +25,8 @@
   "major": {
     "dependencyDashboardApproval": true
   },
-  "recreateWhen": "never",
   "packageRules": [  
     {
-      "enabled": true,
       "matchBaseBranches": ["main"],
       "matchCategories": [
         "python"
@@ -53,7 +51,6 @@
       "automerge": false
     },      
     {
-      "enabled": true,
       "matchDatasources": [
         "docker"
       ],
@@ -72,7 +69,6 @@
       "automerge": false
     },
     {
-      "enabled": true,
       "matchDatasources": [
         "docker"
       ],
@@ -88,7 +84,6 @@
       "automerge": false
     },    
     {
-      "enabled": true,
       "matchDepTypes": [
         "devDependencies"
       ],
@@ -111,7 +106,6 @@
       "groupName": "DevDependencies "
     },
     {
-      "enabled": true, 
       "matchBaseBranches": ["main"],
       "matchDepTypes": [
         "dependencies",
@@ -134,7 +128,6 @@
       ]
     },
     {
-      "enabled": true, 
       "extends": [
         "packages:test"
       ],
@@ -157,7 +150,6 @@
       "groupName": "Test packages "
     },
     {
-      "enabled": true,
       "extends": [
         "packages:linters"
       ],
@@ -180,7 +172,6 @@
       "groupName": "linters"
     },
     {
-      "enabled": true, 
       "extends": [
         "monorepo:material-ui"
       ],
@@ -202,7 +193,6 @@
       "groupName": "material-ui"
     },
     {
-      "enabled": true,
       "extends": [
         "monorepo:react"
       ],
